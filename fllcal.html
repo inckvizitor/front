@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календарь</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+</head>
+<body>
+    <h1>Календарь событий</h1>
+    <div id="calendar"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatId = "YOUR_CHAT_ID"; // Замените на ID пользователя
+            const calendarEl = document.getElementById('calendar');
+
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                selectable: true,
+                events: async function (info, successCallback, failureCallback) {
+                    const response = await fetch(`/get_events?chat_id=${chatId}`);
+                    const events = await response.json();
+                    successCallback(events.map(event => ({
+                        id: event[0],
+                        title: event[1],
+                        start: event[2]
+                    })));
+                },
+                dateClick: function (info) {
+                    const eventName = prompt("Введите название события:");
+                    if (eventName) {
+                        const eventDate = info.dateStr + "T10:00"; // Добавляем время по умолчанию
+                        fetch('/add_event', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                chat_id: chatId,
+                                event_name: eventName,
+                                event_date: eventDate
+                            })
+                        }).then(() => {
+                            calendar.refetchEvents();
+                            alert("Событие добавлено!");
+                        });
+                    }
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

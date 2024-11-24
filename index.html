@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeKeeper</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      img {
+        float: left; /* Или right, если нужно справа */
+        margin: 0 15px 15px 0; /* Отступы вокруг изображения */
+      }
+      p {
+        text-align: justify; /* Опционально, для равномерного текста */
+      }
+    </style>
+  </head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TimeKeeper</h1>
+        </header>
+
+        <section id="auth-section">
+            <center><button id="auth-btn" class="button primary">Авторизация через Telegram</button></center>
+        </section>
+
+        <section id="task-section" style="display: none;">
+            <h2>Список задач</h2>
+            <form id="task-form" class="task-form">
+                <input type="text" id="task-title" placeholder="Название задачи" required>
+                <input type="date" id="task-deadline" required>
+                <textarea id="task-desc" placeholder="Описание"></textarea>
+                <button type="submit" class="button secondary">Добавить задачу</button>
+            </form>
+            <div id="tasks-view">
+                <ul id="task-list" class="task-list"></ul>
+            </div>
+        </section>
+    </div>
+    <script src="app.js"></script>
+
+</body>
+<body>
+    
+    <p ALIGN="left"><img src="https://i.pinimg.com/736x/72/83/a1/7283a14eb52555251e95b27291583611.jpg" alt="произошла ощибка загрузки"></p>
+    <h1>Леонардо да Винчи:
+        «Время пребывает достаточно долго для тех, кто умеет его использовать.»</h1>
+    <h1> </h1>
+    <h1> </h1>
+    <h1> </h1>
+    <h1>Бенджамин Франклин:
+        «Береги время, ибо оно — ткань, из которой соткана жизнь.»</h1>
+    
+</body>
+
+</html>
